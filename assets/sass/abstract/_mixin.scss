@@ -1,0 +1,30 @@
+// Media Query Manager
+@mixin breakpoint($point) {
+  @if $point == xs {
+    @media only screen and (max-width: 479px)  { @content ; } 
+  }
+  @else if $point == sm {
+    @media only screen and (min-width: 480px ) { @content ; } 
+  }
+  @else if $point == md {
+    @media only screen and (min-width: 768px ) { @content ; } 
+  }
+  @else if $point == lg {
+    @media only screen and (min-width: 1024px) { @content ; } 
+  }
+  @else if $point == xl {
+    @media only screen and (min-width: 1440px) { @content ; } 
+  }
+  @else if $point == xxl {
+    @media only screen and (min-width: 1800px)  { @content ; }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg, xl, xxl";
+  }
+}
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
