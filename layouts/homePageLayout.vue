@@ -13,14 +13,13 @@
       </div>
     </sidebar>
       <ul class="menu">
-              <li class="menu-item-about" ref="about"><nuxt-link to="/about">About</nuxt-link></li>
+            <li class="menu-item-about" ref="about"><nuxt-link to="/about">About</nuxt-link></li>
             <li class="menu-item-portfolio" ref="portfolio"><nuxt-link to="/portfolio">Portfolio</nuxt-link></li>
             <li class="menu-item-lab" ref="lab"><nuxt-link to="/lab">Lab</nuxt-link></li>
             <li class="menu-item-contact" ref="contact"><nuxt-link to="/contact">Contact</nuxt-link></li>
       </ul>
     </header>
     </div>
-
     <div class="svg_content">
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg class="home-page-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 600" style="enable-background:new 0 0 800 600;" xml:space="preserve">
@@ -329,7 +328,6 @@
   position: absolute;
 }
 header.header{
-
     position: relative;
     top:0;
     display: grid;
@@ -386,7 +384,7 @@ header.header{
 .sidebar{
   position: relative;
   left:0;
-  font-family: 'roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #464545;
   @include rfs(.9rem);
   transform: rotate(-25deg);
