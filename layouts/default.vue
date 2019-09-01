@@ -72,10 +72,13 @@ export default {
       done()
     }
   },
+  mounted(){
+    // TweenMax.to('a.nuxt-link-exact-active::before', 1, {x: 1000});
+    }
 }
 </script>
 <style lang="scss" scoped>
-
+@import '~/assets/sass/main.scss';
 .container-{
   display: flex;
   max-width: 100%;
@@ -109,6 +112,7 @@ line-height: 1.2;
     top:0;
     height: 3.5rem;
     z-index: 1;
+    position: relative;
     }
         ul.menu li{
         display: inline-block;
@@ -117,10 +121,35 @@ line-height: 1.2;
     }
     ul{
         float: right;
-        a{
+          a{
             color: #000;
             text-decoration: none;
-        }
+            transition: all .5s ease-out;
+            &::before{
+              content: '';
+              bottom: 0;
+              width: 10%;
+              height: .2rem;
+              background: $c-primary;
+              position: relative;
+              top:1.6rem;
+              transition: all .5s ease-out;
+            }
+          }
+            a.nuxt-link-exact-active{
+            color: $c-primary;
+            &::before{
+              content: '';
+              display: block;
+              bottom: 0;
+              width: 100%;
+              height: .2rem;
+              background: $c-primary;
+              position: relative;
+              top:1.6rem;
+              transition: all .5s ease-out;
+            }
+          }
     }
     .icons{
       position: fixed;
@@ -134,6 +163,7 @@ line-height: 1.2;
             svg{
               width: 2.4rem;
             }
+
           }
         }
       }

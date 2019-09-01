@@ -6,6 +6,23 @@
       </div>
     </section>
     <section class="feature-posts">
+      <div class="youtube">
+        <h1 class="title">
+          Youtube
+        </h1>
+        <div class="section-container">
+
+        </div>
+      </div>
+            <div class="youtube">
+        <h1 class="title">
+          Blog Posts
+        </h1>
+        <div class="section-container">
+
+        </div>
+      </div>
+      
       <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
         <div class="post-thumbnail"></div>
@@ -109,5 +126,10 @@ border-radius: 10px;
 }
 .post-content{
 
+}
+.section-container{
+  width: 100vw;
+  height: 20rem;
+  background: orangered;
 }
 </style>
