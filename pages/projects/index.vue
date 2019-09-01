@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <!-- <h1>About</h1> -->
+    <h1>Projects</h1>
   </div>
 </template>
 
 <script>
 export default {
- transition: {
+  transition: {
     mode: 'out-in',
     css: false,
     beforeEnter (el) {
@@ -14,15 +14,16 @@ export default {
       TweenMax.set(el, {
         transformPerspective: 600,
         perspective: 300,
+        x:0,
         transformStyle: 'preserve-3d'
       })
     },
     enter (el, done) {
 	console.log('enter');
-      TweenMax.to(el, 1, {
+      TweenMax.from(el, .5, {
         x: window.innerWidth,
         transformOrigin: '50% 50%',
-        ease: Back.easeOut
+        ease: Sine.easeOut
       })
       done()
     },

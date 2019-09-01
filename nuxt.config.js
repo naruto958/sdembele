@@ -23,7 +23,6 @@ export default {
   /*
   ** Global CSS
   */
- loading: true,
   css: [
   ],
   /*
@@ -40,6 +39,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    
   ],
   /*
   ** Build configuration
