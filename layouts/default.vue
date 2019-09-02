@@ -105,91 +105,91 @@ align-items: center;
 line-height: 1.2;
 }
 .header{
-    background: #fff;
-    box-shadow: 0 -1px #dddddd inset;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    line-height: .6rem;
-    position: sticky;
-    top:0;
-    transition: all 0.4s ease 0s;
-    top:0;
-    height: 3.5rem;
-    z-index: 1;
+  background: #fff;
+  box-shadow: 0 -1px #dddddd inset;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  line-height: .6rem;
+  position: sticky;
+  top:0;
+  transition: all 0.4s ease 0s;
+  top:0;
+  height: 3.5rem;
+  z-index: 1;
+  }
+  ul.menu li{
+  display: inline-block;
+  padding: 1rem;
+  list-style-type: none;
+  }
+  ul{
+  float: right;
+    a{
+      color: #000;
+      text-decoration: none;
+      transition: all .4s ease-out;
+      &:hover{
+        color: $c-primary;
+      }
+      &::before{
+        content: '';
+        bottom: 0;
+        width: 10%;
+        height: .2rem;
+        background: $c-primary;
+        position: relative;
+        top:1.6rem;
+        transition: all .5s ease-out;
+      }
     }
-        ul.menu li{
-        display: inline-block;
-        padding: 1rem;
-        list-style-type: none;
+      a.nuxt-link-exact-active{
+      color: $c-primary;
+      &::before{
+        content: '';
+        display: block;
+        bottom: 0;
+        width: 100%;
+        height: .2rem;
+        background: $c-primary;
+        position: relative;
+        top:1.6rem;
+        transition: all .5s ease-out;
+      }
     }
-    ul{
-        float: right;
-          a{
-            color: #000;
-            text-decoration: none;
-            transition: all .4s ease-out;
-            &:hover{
-              color: $c-primary;
-            }
-            &::before{
-              content: '';
-              bottom: 0;
-              width: 10%;
-              height: .2rem;
-              background: $c-primary;
-              position: relative;
-              top:1.6rem;
-              transition: all .5s ease-out;
-            }
-          }
-            a.nuxt-link-exact-active{
-            color: $c-primary;
-            &::before{
-              content: '';
-              display: block;
-              bottom: 0;
-              width: 100%;
-              height: .2rem;
-              background: $c-primary;
-              position: relative;
-              top:1.6rem;
-              transition: all .5s ease-out;
-            }
-          }
-    }
-    .icons{
-      position: fixed;
-      bottom:0;
-      ul{
+  }
+.icons{
+  position: fixed;
+  bottom:0;
+  ul{
 
-        li{
-          display: inline-block;
-          list-style-type: none;
-          a{
-            svg{
-              width: 2.4rem;
-              g{
-                transition: all .4s ease-out;
-              }
-            }
+    li{
+      display: inline-block;
+      list-style-type: none;
+      a{
+        svg{
+          width: 2.4rem;
+          g{
+            transition: all .4s ease-out;
           }
-          a:hover{
-            svg{
-              g{
-                fill:#333333;
-              }
-            }
+        }
+      }
+      a:hover{
+        svg{
+          g{
+            fill:#333333;
           }
         }
       }
     }
-    .times{
-      width:1rem;
-      height: 1rem;
-      fill:#000;
-      transition: all .4s ease-out;
-      &:hover{
-        fill:$c-primary;
-      }
-    }
+  }
+}
+.times{
+  width:1rem;
+  height: 1rem;
+  fill:#000;
+  transition: all .4s ease-out;
+  &:hover{
+    fill:$c-primary;
+  }
+}
 </style>
