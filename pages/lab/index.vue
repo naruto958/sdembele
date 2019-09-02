@@ -1,28 +1,11 @@
 <template>
   <div class="container">
     <section class="intro">
-      <div class="hero-section">
-<h1>Get the latest tech news!</h1>
-      </div>
+    <p class="p-title">What's happening</p >
+    <h1 class="text">Youtube</h1>
     </section>
     <section class="feature-posts">
-      <div class="youtube">
-        <h1 class="title">
-          Youtube
-        </h1>
-        <div class="section-container">
-
-        </div>
-      </div>
-            <div class="youtube">
-        <h1 class="title">
-          Blog Posts
-        </h1>
-        <div class="section-container">
-
-        </div>
-      </div>
-      
+      <div class="post-c">
       <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
         <div class="post-thumbnail"></div>
@@ -32,7 +15,9 @@
         </div>
       </article>
       </nuxt-link>
-      <nuxt-link :to="'/lab/'+ 2">
+      </div>
+            <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
         <div class="post-thumbnail"></div>
         <div class="post-content">
@@ -41,7 +26,9 @@
         </div>
       </article>
       </nuxt-link>
-        <nuxt-link :to="'/lab/'+ 3">
+      </div>
+            <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
         <div class="post-thumbnail"></div>
         <div class="post-content">
@@ -50,6 +37,18 @@
         </div>
       </article>
       </nuxt-link>
+      </div>
+            <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
+      <article class="post-preview">
+        <div class="post-thumbnail"></div>
+        <div class="post-content">
+          <h1>Post Title</h1>
+          <p>Preview Text</p>
+        </div>
+      </article>
+      </nuxt-link>
+      </div>
     </section>
   </div>
 </template>
@@ -93,7 +92,7 @@ export default {
 .hero-section{
   width: 75vw;
 
-  // 
+  //
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -114,22 +113,17 @@ padding: 1rem;
 border-radius: 10px;
   }
 }
-.post-preview{
- width: 10rem;
- height: 10rem;
+.feature-posts{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+  grid-auto-rows: 30vh;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  .post-preview{
+    width: 100%;
+    height: 100%;
+    background: orangered;
 }
-.post-thumbnail{
-  width: 10rem;
-  height: 10rem;
-  background-image: linear-gradient(to right bottom, rgba(87, 167, 41, 0.616), rgba(100, 172, 82, 0.541)), url('//unsplash.it/200/300');
+}
 
-}
-.post-content{
-
-}
-.section-container{
-  width: 100vw;
-  height: 20rem;
-  background: orangered;
-}
 </style>

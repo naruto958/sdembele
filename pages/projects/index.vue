@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1>Projects</h1>
+    <p class="p-title">My Work</p>
+    <h1 class="text">Projects</h1>
+    <p>Filters</p>
   </div>
 </template>
 

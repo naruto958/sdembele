@@ -1,10 +1,10 @@
 <template>
   <div class="container-">
-      <section class="intro-box">
+ <section class="intro-box">
       <div class="intro-container">
-              <h1 id="hello">Hello,</h1>
-            <h2 ref="myName">I am Souleymane Dembele</h2>
-      <h3>I am a <span> FullStack Developer</span></h3>
+              <span id="hello">Hello,</span>
+            <h1 ref="myName">I am Souleymane Dembele</h1>
+      <h4>I am a <span> FullStack Developer</span></h4>
       <div class="icons">
         <ul>
           <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -32,7 +32,8 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
           </nuxt-link></li>
         </ul>
     </header>
-    <nuxt />
+
+    <nuxt/>
     </div>
   </div>
 </template>
@@ -46,6 +47,19 @@ export default {
   components:{
     'app-intro-box': IntroBox,
     'app-header': Header,
+  },
+ methods: {
+    beforeEnter(el){
+      console.log('be');
+    // TweenMax.to(this.$refs.intro_box, 2, {rotation:0, height:window.innerHeight});
+    // TweenMax.to(this.$refs.intro_container, 2, {rotation:0});
+    },
+    enter(el, done){
+      console.log('enter');
+
+      done();
+    }
+
   },
   transition: {
     mode: 'out-in',
@@ -74,9 +88,6 @@ export default {
       done()
     }
   },
-  mounted(){
-    // TweenMax.to('a.nuxt-link-exact-active::before', 1, {x: 1000});
-    }
 }
 </script>
 <style lang="scss" scoped>
@@ -88,6 +99,9 @@ export default {
 }
 .content{
 width: 75vw;
+@include breakpoint(xs){
+  width: 100vw;
+}
 }
 .intro-box{
 background: linear-gradient(to right bottom, hsl(98,60,41), hsl(108,35,50));
@@ -100,9 +114,12 @@ bottom:0;
 color: #f6f6f6;
 padding: 1rem;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 line-height: 1.2;
+@include breakpoint(xs){
+  display: none;
+}
 }
 .header{
   background: #fff;
@@ -116,11 +133,17 @@ line-height: 1.2;
   top:0;
   height: 3.5rem;
   z-index: 1;
+  @include breakpoint(xs){
+  width: 100vw;
+}
   }
   ul.menu li{
   display: inline-block;
   padding: 1rem;
   list-style-type: none;
+  @include breakpoint(xs){
+    padding: .5rem;
+    }
   }
   ul{
   float: right;
@@ -128,6 +151,7 @@ line-height: 1.2;
       color: #000;
       text-decoration: none;
       transition: all .4s ease-out;
+      @include rfs(1rem);
       &:hover{
         color: $c-primary;
       }
