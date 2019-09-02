@@ -23,11 +23,13 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
         <div class="content">
         <header class="header">
         <ul class="menu">
-          <li class="menu-item"><nuxt-link to="/">Home</nuxt-link></li>
             <li class="menu-item"><nuxt-link to="/projects">Projects</nuxt-link></li>
             <li class="menu-item"><nuxt-link to="/lab">Lab</nuxt-link></li>
             <li class="menu-item"><nuxt-link to="/about">About</nuxt-link></li>
             <li class="menu-item"><nuxt-link to="/contact">Contact</nuxt-link></li>
+            <li class="menu-item"><nuxt-link to="/">
+          <svg class="times" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z"/></svg>
+          </nuxt-link></li>
         </ul>
     </header>
     <nuxt />
@@ -93,6 +95,8 @@ width:25vw;
 height: 100vh;
 position: sticky;
 top:0;
+left: 0;
+bottom:0;
 color: #f6f6f6;
 padding: 1rem;
 display: flex;
@@ -157,7 +161,7 @@ line-height: 1.2;
       position: fixed;
       bottom:0;
       ul{
-        
+
         li{
           display: inline-block;
           list-style-type: none;
@@ -177,6 +181,15 @@ line-height: 1.2;
             }
           }
         }
+      }
+    }
+    .times{
+      width:1rem;
+      height: 1rem;
+      fill:#000;
+      transition: all .4s ease-out;
+      &:hover{
+        fill:$c-primary;
       }
     }
 </style>
