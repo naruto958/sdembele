@@ -16,7 +16,7 @@
     </section>
       <ul class="menu">
             <li class="menu-item-about" ref="about"><nuxt-link to="/about">About</nuxt-link></li>
-            <li class="menu-item-portfolio" ref="portfolio"><nuxt-link to="/portfolio">Projects</nuxt-link></li>
+            <li class="menu-item-portfolio" ref="portfolio"><nuxt-link to="/projects">Projects</nuxt-link></li>
             <li class="menu-item-lab" ref="lab"><nuxt-link to="/lab">Lab</nuxt-link></li>
             <li class="menu-item-contact" ref="contact"><nuxt-link to="/contact">Contact</nuxt-link></li>
       </ul>
