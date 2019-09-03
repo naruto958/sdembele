@@ -73,3 +73,10 @@ body{
   font-size: 200%;
   color: $c-primary;
 }
+a{
+  color: #7e7e7e;
+  text-decoration: none;
+  &:hover{
+    color: $c-primary;
+  }
+}

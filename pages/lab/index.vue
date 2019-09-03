@@ -197,7 +197,7 @@ a{
   .post-preview{
     width: 100%;
     height: 100%;
-    background-image: url('//unsplash.it/2000/3000');
+    background-image: url('//unsplash.it/300/400');
     background-size: cover;
     background-position: center;
     display: flex;
