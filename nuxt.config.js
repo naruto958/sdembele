@@ -40,7 +40,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    
+
   ],
   /*
   ** Build configuration
@@ -51,5 +51,7 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+
 }
+
