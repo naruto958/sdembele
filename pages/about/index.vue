@@ -6,10 +6,6 @@
     <p class="description">I am a Fullstack Developer at <span><a href="http://www.flowstatecreatives.com" target="_blank">Flowstate Creatives</a></span> in Olympia, WA
 </p>
 <br>
-<p class="description">Vitae blandit elit rutrum eu. Sed semper elit eget placerat condimentum.
-
-Sed iaculis dignissim est tempor sagittis. Praesent a rhoncus mauris, sed ultricies urna. Nullam blandit risus erat. Fusce ut ante facilisis dolor dictum aliquet.</p>
-<br>
    </section>
    <section class="expertise">
      <p class="p-title">What Can I bring to the Table</p>
