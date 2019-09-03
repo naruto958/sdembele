@@ -8,7 +8,9 @@
       <div class="post-c">
       <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
-        <div class="post-thumbnail"></div>
+        <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
         <div class="post-content">
           <h1>Post Title</h1>
           <p>Preview Text</p>
@@ -19,7 +21,9 @@
             <div class="post-c">
       <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
-        <div class="post-thumbnail"></div>
+                <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
         <div class="post-content">
           <h1>Post Title</h1>
           <p>Preview Text</p>
@@ -30,7 +34,9 @@
             <div class="post-c">
       <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
-        <div class="post-thumbnail"></div>
+                <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
         <div class="post-content">
           <h1>Post Title</h1>
           <p>Preview Text</p>
@@ -41,7 +47,67 @@
             <div class="post-c">
       <nuxt-link :to="'/lab/'+ 1">
       <article class="post-preview">
-        <div class="post-thumbnail"></div>
+               <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
+        <div class="post-content">
+          <h1>Post Title</h1>
+          <p>Preview Text</p>
+        </div>
+      </article>
+      </nuxt-link>
+      </div>
+    </section>
+        <section class="intro">
+    <p class="p-title news">Latest Tech News</p >
+    <h1 class="text">Blog Posts</h1>
+    </section>
+    <section class="feature-posts">
+      <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
+      <article class="post-preview">
+        <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
+        <div class="post-content">
+          <h1>Post Title</h1>
+          <p>Preview Text</p>
+        </div>
+      </article>
+      </nuxt-link>
+      </div>
+            <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
+      <article class="post-preview">
+                <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
+        <div class="post-content">
+          <h1>Post Title</h1>
+          <p>Preview Text</p>
+        </div>
+      </article>
+      </nuxt-link>
+      </div>
+            <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
+      <article class="post-preview">
+                <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
+        <div class="post-content">
+          <h1>Post Title</h1>
+          <p>Preview Text</p>
+        </div>
+      </article>
+      </nuxt-link>
+      </div>
+            <div class="post-c">
+      <nuxt-link :to="'/lab/'+ 1">
+      <article class="post-preview">
+               <div class="post-thumbnail">
+          <p>Hello</p>
+        </div>
         <div class="post-content">
           <h1>Post Title</h1>
           <p>Preview Text</p>
@@ -89,6 +155,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/sass/main.scss';
 .hero-section{
   width: 75vw;
 
@@ -113,17 +180,101 @@ padding: 1rem;
 border-radius: 10px;
   }
 }
+a{
+  text-decoration: none;
+  color: rgba(87, 167, 41, 1);
+}
 .feature-posts{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+  @include breakpoint(xs){
+    grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
+  }
   grid-auto-rows: 30vh;
   column-gap: 1rem;
   row-gap: 1rem;
+
   .post-preview{
     width: 100%;
     height: 100%;
-    background: orangered;
-}
-}
+    background-image: url('//unsplash.it/2000/3000');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:hover{
+      .post-thumbnail{
+          transform: scale(1);
+          background: rgba(26, 26, 26, 0.3);
+          border: .01rem solid rgba(255, 255, 255, 1);
+          p{
+            opacity: 1;
+            visibility: visible;
+          }
+      }
+      .post-content{
+      z-index: 2;
+      transform: translateY(0rem);
+          p{
+      color: #fff;
+      visibility: visible;
+      opacity: 1;
+    }
+    }
 
+    }
+    .post-content{
+      z-index: 2;
+      transform: translateY(2rem);
+      transition: all .4s ease-out;
+      padding: 1rem;
+          p{
+      color: #fff;
+      visibility: hidden;
+      opacity: 0;
+      transition: all .4s ease-out;
+    }
+    }
+    .post-thumbnail{
+      background: rgba(26, 26, 26, 0);
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      border-left-width: .01rem solid rgba(255, 255, 255, 0);
+      transition: all .4s ease-out;
+      transform: scale(0);
+      p{
+        color: #fff;
+        background: rgba(129, 129, 129, 0.432);
+        width: 100%;
+        bottom: 0rem;
+        position: absolute;
+        padding: .1rem;
+        height: 4rem;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .4s ease-out;
+      }
+      &::before{
+        content: '';
+        display: block;
+        background: rgba(27, 27, 27, 0.5);
+        width: 100%;
+        height: 100%;
+        filter: blur(1px);
+      }
+    }
+    h1{
+      @include rfs(2rem);
+      padding-bottom: .5rem;
+
+    }
+
+}
+}
+.news{
+  margin-top: 3rem;
+}
 </style>

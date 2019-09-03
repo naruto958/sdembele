@@ -132,7 +132,7 @@ line-height: 1.2;
   transition: all 0.4s ease 0s;
   top:0;
   height: 3.5rem;
-  z-index: 1;
+  z-index: 99999;
   @include breakpoint(xs){
   width: 100vw;
 }
