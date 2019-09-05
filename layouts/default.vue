@@ -37,7 +37,7 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
     </div>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss"> 
 </style>
 <script>
 import IntroBox from '~/components/shared/IntroBox.vue'
