@@ -4,12 +4,12 @@
     <p class="p-title">What's happening</p >
     <h1 class="text">Youtube</h1>
     </section>
-    <PostList :posts="loadedPosts"/>
+    <PostList :posts="youtubePosts"/>
     <section class="intro">
     <p class="p-title news">Latest Tech News</p >
     <h1 class="text">Blog Posts</h1>
     </section>
-    <PostList/>
+    <PostList :posts="blogPosts"/>
   </div>
 </template>
 
@@ -21,7 +21,21 @@ export default {
   },
     data(){
     return{
-      loadedPosts: [
+      youtubePosts: [
+        {
+          id: '1',
+          title: 'first loaded post',
+          previewText: 'this is the preview text',
+          thumbnail: '//unsplash.it/300/400'
+        },
+        {
+          id: '2',
+          title: 'second loaded post',
+          previewText: 'this is the preview text',
+          thumbnail: '//unsplash.it/300/400'
+        }
+      ],
+      blogPosts: [
         {
           id: '1',
           title: 'first loaded post',

@@ -122,6 +122,35 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 </template>
 <script>
 export default {
+    data() {
+    return {
+      structuredData: {
+      "@context": "http://www.schema.org",
+      "@type": "person",
+      "name": "Souleymane Dembele",
+      "jobTitle": "Software Developer",
+      "url": "https://sdembele.me",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Olympia",
+        "addressRegion": "Washington",
+        "addressCountry": "USA"
+      }
+    },
+    }
+  },
+    head () {
+    return {
+      title: 'About Souleymane Dembele',
+      meta: [
+        { hid: 'description',
+         name: 'description',
+          content: 'Souleymane Dembele is a fullstack web developer in Olympia, WA. He has experience working with tools such as modern javascript and frontend, and backend framework' }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify(this.structuredData), type: 'application/ld+json' }]
+    }
+  },
   transition: {
     mode: 'out-in',
     css: false,

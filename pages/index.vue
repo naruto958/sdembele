@@ -5,6 +5,29 @@
 <script>
 import TweenMax from 'gsap'
 export default {
+data() {
+    return {
+      structuredData: {
+  "@context": "http://www.schema.org",
+  "@type": "WebSite",
+  "name": "sdembele",
+  "alternateName": "dembele",
+  "url": "https://sdembele.me"
+},
+    }
+  },
+    head () {
+    return {
+      title: 'Souleymane Dembele Website',
+      meta: [
+        { hid: 'description',
+         name: 'description',
+          content: 'Welcome to the official website of Souleymane Dembele, a fullstack web developer in Olympia, WA' }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify(this.structuredData), type: 'application/ld+json' }]
+    }
+  },
 layout: 'homePageLayout',
 transition: {
     mode: 'out-in',
