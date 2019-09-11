@@ -19,9 +19,10 @@ export default {
   components: {
     PostList
   },
-    data(){
-    return{
-      youtubePosts: [
+  asyncData(context, callback){
+    setTimeout(()=>{
+      callback(null, {
+              youtubePosts: [
         {
           id: '1',
           title: 'first loaded post',
@@ -49,7 +50,12 @@ export default {
           thumbnail: '//unsplash.it/300/400'
         }
       ]
-    }
+      })
+    },1500);
+    // data(){
+    // return{
+
+    // }
   },
   transition: {
     mode: 'out-in',
