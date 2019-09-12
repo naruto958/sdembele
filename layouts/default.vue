@@ -5,6 +5,7 @@
               <span id="hello">Hello,</span>
             <h1 ref="myName">I am Souleymane Dembele</h1>
       <h4>I am a <span> FullStack Developer</span></h4>
+      <div ref="design" class="design"></div>
       <div class="icons">
         <ul>
           <li><a target="_blank" href="https://github.com/naruto958"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -23,10 +24,10 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
         <div class="content">
         <header class="header">
         <ul class="menu">
-          <li class="menu-item"><nuxt-link to="/">About</nuxt-link></li>
-            <li class="menu-item"><nuxt-link to="/projects">Projects</nuxt-link></li>
-            <li class="menu-item"><nuxt-link to="/lab">Lab</nuxt-link></li>
-            <li class="menu-item"><nuxt-link to="/contact">Contact</nuxt-link></li>
+          <li class="menu-item" @click="rotateDesign()"><nuxt-link to="/">About</nuxt-link></li>
+            <li class="menu-item" @click="rotateDesign()"><nuxt-link to="/projects">Projects</nuxt-link></li>
+            <li class="menu-item" @click="rotateDesign()"><nuxt-link to="/lab">Lab</nuxt-link></li>
+            <li class="menu-item" @click="rotateDesign()"><nuxt-link to="/contact">Contact</nuxt-link></li>
         </ul>
     </header>
 
@@ -40,16 +41,39 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 import IntroBox from '~/components/shared/IntroBox.vue'
 import Header from '~/components/shared/Header.vue'
 import TweenMax from 'gsap'
+
 export default {
+    mounted(){
+
+  },
+  data(){
+    return{
+      rotationDes: false
+    }
+  },
   components:{
     'app-intro-box': IntroBox,
     'app-header': Header,
   },
  methods: {
+    rotateDesign(){
+      TweenMax.set(this.$refs.design, {
+      transformPerspective: 600,
+      perspective: 300,
+      transformStyle: 'preserve-3d'
+    });
+      TweenMax.to(this.$refs.design, .1, {
+      rotation: 180,
+      transformOrigin: '50% 50%',
+      ease: Back.easeOut,
+      onComplete: null
+    });
+
+    
+    },
+
     beforeEnter(el){
       console.log('be');
-    // TweenMax.to(this.$refs.intro_box, 2, {rotation:0, height:window.innerHeight});
-    // TweenMax.to(this.$refs.intro_container, 2, {rotation:0});
     },
     enter(el, done){
       console.log('enter');
@@ -85,6 +109,7 @@ export default {
       done()
     }
   },
+
 }
 </script>
 <style lang="scss" scoped>
@@ -101,7 +126,7 @@ width: 75vw;
 }
 }
 .intro-box{
-background: linear-gradient(to right bottom, hsl(98,60,41), hsl(108,35,50));
+background-image: linear-gradient(to right bottom, hsl(98,60,41), hsl(108,35,50));
 width:25vw;
 height: 100vh;
 position: sticky;
@@ -215,4 +240,17 @@ line-height: 1.2;
     fill:$c-primary;
   }
 }
+.design{
+  display: block;
+  position: absolute;
+  left:-25vw;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  transition: all .5s ease-out;
+  background-image: linear-gradient(to right bottom, rgba(81, 223, 62, 0.507), hsl(108,35,50));
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  z-index: -1;
+}
+
 </style>

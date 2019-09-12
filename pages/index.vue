@@ -166,19 +166,27 @@ export default {
     enter (el, done) {
 	console.log('enter');
       TweenMax.from(el, .5, {
-        x: window.innerWidth,
+        scale: 0,
         transformOrigin: '50% 50%',
-        ease: Sine.easeOut
+        ease: Sine.easeOut,
+        onComplete: done()
       })
-      done()
+      
     },
-    leave (el, done) {
+    beforeLeave (el,) {
       TweenMax.to(el, 1, {
-        x: 0,
+        scale: 0,
         transformOrigin: '50% 50%',
         ease: Back.easeIn
       })
-      done()
+    },
+    leave (el, done) {
+      TweenMax.to(el, 1, {
+        scale: 0,
+        transformOrigin: '50% 50%',
+        ease: Back.easeIn,
+        onComplete: done()
+      })
     }
   },
 }

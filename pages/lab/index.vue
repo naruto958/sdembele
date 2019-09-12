@@ -4,12 +4,12 @@
     <p class="p-title">What's happening</p >
     <h1 class="text">Youtube</h1>
     </section>
-    <PostList :posts="youtubePosts"/>
+    <PostList :posts="this.$store.state.youtubePosts"/>
     <section class="intro">
     <p class="p-title news">Latest Tech News</p >
     <h1 class="text">Blog Posts</h1>
     </section>
-    <PostList :posts="blogPosts"/>
+    <PostList :posts="this.$store.state.blogPosts"/>
   </div>
 </template>
 
@@ -20,42 +20,45 @@ export default {
     PostList
   },
   asyncData(context, callback){
-      callback(null, {
-              youtubePosts: [
-        {
-          id: '1',
-          title: 'first loaded post',
-          previewText: 'this is the preview text',
-          thumbnail: '//unsplash.it/300/400'
-        },
-        {
-          id: '2',
-          title: 'second loaded post',
-          previewText: 'this is the preview text',
-          thumbnail: '//unsplash.it/300/400'
-        }
-      ],
-      blogPosts: [
-        {
-          id: '1',
-          title: 'first loaded post',
-          previewText: 'this is the preview text',
-          thumbnail: '//unsplash.it/300/400'
-        },
-        {
-          id: '2',
-          title: 'second loaded post',
-          previewText: 'this is the preview text',
-          thumbnail: '//unsplash.it/300/400'
-        }
-      ]
-      });
+      // setTimeout(() => {
+        callback(null, {
+          
+      // // youtubePosts: [
+      // //   {
+      // //     id: '1',
+      // //     title: 'first loaded post',
+      // //     previewText: 'this is the preview text',
+      // //     thumbnail: '//unsplash.it/300/400'
+      // //   },
+      // //   {
+      // //     id: '2',
+      // //     title: 'second loaded post',
+      // //     previewText: 'this is the preview text',
+      // //     thumbnail: '//unsplash.it/300/400'
+      // //   }
+      // // ],
+      // // blogPosts: [
+      // //   {
+      // //     id: '1',
+      // //     title: 'first loaded post',
+      // //     previewText: 'this is the preview text',
+      // //     thumbnail: '//unsplash.it/300/400'
+      // //   },
+      // //   {
+      // //     id: '2',
+      // //     title: 'second loaded post',
+      // //     previewText: 'this is the preview text',
+      // //     thumbnail: '//unsplash.it/300/400'
+      // //   }
+      // // ]
+      // });
+      // }, 1500);
     // data(){
     // return{
 
-    // }
+    });
   },
-  transition: {
+transition: {
     mode: 'out-in',
     css: false,
     beforeEnter (el) {
@@ -70,19 +73,27 @@ export default {
     enter (el, done) {
 	console.log('enter');
       TweenMax.from(el, .5, {
-        x: window.innerWidth,
+        scale: 0,
         transformOrigin: '50% 50%',
-        ease: Sine.easeOut
+        ease: Sine.easeOut,
+        onComplete: done()
       })
-      done()
+      
     },
-    leave (el, done) {
+    beforeLeave (el,) {
       TweenMax.to(el, 1, {
-        x: 0,
+        scale: 0,
         transformOrigin: '50% 50%',
         ease: Back.easeIn
       })
-      done()
+    },
+    leave (el, done) {
+      TweenMax.to(el, 1, {
+        scale: 0,
+        transformOrigin: '50% 50%',
+        ease: Back.easeIn,
+        onComplete: done()
+      })
     }
   },
 }

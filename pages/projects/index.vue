@@ -4,72 +4,44 @@
     <p class="p-title">My Work</p >
     <h1 class="text">Project</h1>
     <p>Filters:
-      <span><nuxt-link to="/all">All</nuxt-link></span>
-      <span><nuxt-link to="/web">Web Design</nuxt-link></span>
-      <span><nuxt-link to="/ui">UI/UX</nuxt-link></span>
-      <span><nuxt-link to="/android">Android</nuxt-link></span>
-      <span><nuxt-link to="/ios">Ios</nuxt-link></span>
+      <ul>
+        <li><a href="#all" @click="all()">All</a></li>
+        <li><a href="#web" @click="web()">Web Design</a></li>
+        <li><a href="#ui" @click="ui()">UI/UX</a></li>
+        <li><a href="#android" @click="android()">Android</a></li>
+        <li><a href="#ios" @click="ios()">Ios</a></li>
+      </ul>
     </p>
+    
     </section>
-    <section class="feature-posts">
-      <div class="post-c">
-      <nuxt-link :to="'/lab/'+ 1">
-      <article class="post-preview">
-        <div class="post-thumbnail">
-          <p>Hello</p>
-        </div>
-        <div class="post-content">
-          <h1>Post Title</h1>
-          <p>Preview Text</p>
-        </div>
-      </article>
-      </nuxt-link>
-      </div>
-            <div class="post-c">
-      <nuxt-link :to="'/lab/'+ 1">
-      <article class="post-preview">
-                <div class="post-thumbnail">
-          <p>Hello</p>
-        </div>
-        <div class="post-content">
-          <h1>Post Title</h1>
-          <p>Preview Text</p>
-        </div>
-      </article>
-      </nuxt-link>
-      </div>
-            <div class="post-c">
-      <nuxt-link :to="'/lab/'+ 1">
-      <article class="post-preview">
-                <div class="post-thumbnail">
-          <p>Hello</p>
-        </div>
-        <div class="post-content">
-          <h1>Post Title</h1>
-          <p>Preview Text</p>
-        </div>
-      </article>
-      </nuxt-link>
-      </div>
-            <div class="post-c">
-      <nuxt-link :to="'/lab/'+ 1">
-      <article class="post-preview">
-               <div class="post-thumbnail">
-          <p>Hello</p>
-        </div>
-        <div class="post-content">
-          <h1>Post Title</h1>
-          <p>Preview Text</p>
-        </div>
-      </article>
-      </nuxt-link>
-      </div>
-    </section>
+    <hr>
+<PostList :posts="this.$store.state.projectPosts"/>
   </div>
 </template>
 
 <script>
+import PostList from "~/components/lab/PostList.vue";
 export default {
+  components: {
+    PostList
+  },
+  methods: {
+    all(){
+
+    },
+    web(){
+
+    },
+    ui(){
+
+    },
+    android(){
+
+    },
+    ios(){
+
+    },
+  },
   transition: {
     mode: 'out-in',
     css: false,
@@ -85,19 +57,27 @@ export default {
     enter (el, done) {
 	console.log('enter');
       TweenMax.from(el, .5, {
-        x: window.innerWidth,
+        scale: 0,
         transformOrigin: '50% 50%',
-        ease: Sine.easeOut
+        ease: Sine.easeOut,
+        onComplete: done()
       })
-      done()
+      
     },
-    leave (el, done) {
+    beforeLeave (el,) {
       TweenMax.to(el, 1, {
-        x: 0,
+        scale: 0,
         transformOrigin: '50% 50%',
         ease: Back.easeIn
       })
-      done()
+    },
+    leave (el, done) {
+      TweenMax.to(el, 1, {
+        scale: 0,
+        transformOrigin: '50% 50%',
+        ease: Back.easeIn,
+        onComplete: done()
+      })
     }
   },
 }
@@ -130,101 +110,21 @@ border-radius: 10px;
   }
 }
 
-.feature-posts{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-  a{
-  text-decoration: none;
-  color: rgba(87, 167, 41, 1);
-}
-  @include breakpoint(xs){
-    grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
-  }
-  grid-auto-rows: 30vh;
-  column-gap: 1rem;
-  row-gap: 1rem;
-
-  .post-preview{
-    width: 100%;
-    height: 100%;
-    background-image: url('//unsplash.it/300/400');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
-    &:hover{
-      .post-thumbnail{
-          transform: scale(1);
-          background: rgba(26, 26, 26, 0.3);
-          border: .01rem solid rgba(255, 255, 255, 1);
-          p{
-            opacity: 1;
-            visibility: visible;
-          }
-      }
-      .post-content{
-      z-index: 2;
-      transform: translateY(0rem);
-          p{
-      color: #fff;
-      visibility: visible;
-      opacity: 1;
-    }
-    }
-
-    }
-    .post-content{
-      z-index: 2;
-      transform: translateY(2rem);
-      transition: all .4s ease-out;
-      padding: 1rem;
-          p{
-      color: #fff;
-      visibility: hidden;
-      opacity: 0;
-      transition: all .4s ease-out;
-    }
-    }
-    .post-thumbnail{
-      background: rgba(26, 26, 26, 0);
-      width: 80%;
-      height: 80%;
-      position: absolute;
-      border-left-width: .01rem solid rgba(255, 255, 255, 0);
-      transition: all .4s ease-out;
-      transform: scale(0);
-      p{
-        color: #fff;
-        background: rgba(129, 129, 129, 0.432);
-        width: 100%;
-        bottom: 0rem;
-        position: absolute;
-        padding: .1rem;
-        height: 4rem;
-        visibility: hidden;
-        opacity: 0;
-        transition: all .4s ease-out;
-      }
-      &::before{
-        content: '';
-        display: block;
-        background: rgba(27, 27, 27, 0.5);
-        width: 100%;
-        height: 100%;
-        filter: blur(1px);
-      }
-    }
-    h1{
-      @include rfs(2rem);
-      padding-bottom: .5rem;
-
-    }
-}
-}
 .news{
   margin-top: 3rem;
+}
+.intro{
+  margin-bottom: 1rem; 
+  ul{
+    display: inline;
+    li{
+      list-style-type: none;
+      display: inline;
+      padding-left: 1rem;
+    }
+  }
+}
+hr{
+  margin-bottom: 1rem;
 }
 </style>
