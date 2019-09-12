@@ -136,6 +136,7 @@ export default {
     extend (config, ctx) {
     }
   },
+  serverMiddleware: ['redirect-ssl'],
 
 }
 
