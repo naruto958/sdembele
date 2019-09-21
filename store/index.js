@@ -40,14 +40,14 @@ const createStore = () =>{
                   thumbnail: '//unsplash.it/300/400'
                 },
                 {
-                id: '1',
+                id: '2',
                 category: 'frontent',
                 title: 'first loaded post',
                 previewText: 'this is the preview text',
                 thumbnail: '//unsplash.it/300/400'
                 },
                 {
-                id: '1',
+                id: '3',
                 category: 'frontent',
                 title: 'first loaded post',
                 previewText: 'this is the preview text',

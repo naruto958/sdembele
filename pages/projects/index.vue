@@ -12,15 +12,19 @@
         <li><a href="#ios" @click="ios()">Ios</a></li>
       </ul>
     </p>
-    
+
     </section>
+<!-- Slider main container -->
+
     <hr>
 <PostList :posts="this.$store.state.projectPosts"/>
   </div>
+
 </template>
 
 <script>
 import PostList from "~/components/lab/PostList.vue";
+
 export default {
   components: {
     PostList
@@ -62,7 +66,7 @@ export default {
         ease: Sine.easeOut,
         onComplete: done()
       })
-      
+
     },
     beforeLeave (el,) {
       TweenMax.to(el, 1, {
@@ -114,7 +118,7 @@ border-radius: 10px;
   margin-top: 3rem;
 }
 .intro{
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
   ul{
     display: inline;
     li{

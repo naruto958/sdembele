@@ -35,7 +35,7 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
     </div>
   </div>
 </template>
-<style lang="scss"> 
+<style lang="scss">
 </style>
 <script>
 import IntroBox from '~/components/shared/IntroBox.vue'
@@ -69,7 +69,7 @@ export default {
       onComplete: null
     });
 
-    
+
     },
 
     beforeEnter(el){
@@ -224,7 +224,7 @@ line-height: 1.2;
           transform: scale(1.2);
           g{
             fill: #3a3a3a;
-            
+
           }
         }
       }
